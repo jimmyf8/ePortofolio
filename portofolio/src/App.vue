@@ -1,26 +1,14 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-       <router-link to="/aboutme">Qui suis je?</router-link> |
-      <router-link to="/formation">Ma formation</router-link> |
-      <router-link to="/skills">Mes compétences</router-link> |
-      <router-link to="/projects">Mes projets</router-link> |
-      <router-link to="/contact">Me contacter</router-link> |
-      
-
+    <div class="jumbotron">
      
-      <router-view/>
-    </div>
+        
+       
+         
 
-    
-   
-    
-    
-    <div>
-  
-    </div>
-    
+      <router-view />
+       
+  </div>
   </div>
 </template>
 
@@ -31,34 +19,33 @@
 export default {
   name: "App",
   components: {
-   
-   
 
+     
+    
   },
 };
 </script>
 
-<style scoped>
-@import url("./style/reset.css");
+<style lang="scss" scoped>
 #app {
-  margin: 0px;
+   
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
+  height: 100vh;
+
+}
+.jumbotron{
+  padding: 0px;
 }
 
-#nav {
-  padding: 30px;
-}
 
-#nav a {
-  font-weight: bold;
-  color: #000000;
-}
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+
+  
+
+
+
 </style>
