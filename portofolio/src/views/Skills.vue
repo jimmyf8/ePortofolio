@@ -1,199 +1,112 @@
 <template>
+  <section v-scrollanimation>
+    <div class="container-fluid ">
+      <h1>Mes compétences</h1>
 
-<section>
-   <div class="container-fluid">
-    <h1>Mes compétences</h1>
-     
-      <div class="jumbotron">
-        <h2>Front end</h2>
-        <div class="row">
-          <div class="col-sm-4">
-
-            <a class="nav-link" href="#"
-              ><img
-                
-                class="img-responsive"
-                src="../assets/vue_sass.png"
-                alt="Card image cap" style="width:30%"
-            /></a>
-            <p>Vue avec Sass</p>
-          </div>
-           <div class="col-sm-4">
-            <a class="nav-link" href="#"
-              ><img
-                
-                class="img-responsive"
-                src="../assets/bootstrap.png"
-                alt="Card image cap" style="width:30%"
-            /></a>
-            <p>Bootstrap</p>
-          </div>
-           <div class="col-sm-4">
-            <a class="nav-link" href="#"
-              ><img
-                
-                class="img-responsive"
-                src="../assets/javascript.png"
-                alt="Card image cap" style="width:30%"
-            /></a>
-            <p>Javascript</p>
-          </div>
-         
-        </div>
+      <div class="btn btn-outline-warning mr-2" v-on:click="toggleOng1">
+        Front end
       </div>
-      <div class="jumbotron">
-        <h2>Back end</h2>
-        <div class="row">
-          <div class="col-sm-4">
-            <a class="nav-link" href="#"
-              ><img
-                
-                class="img-responsive"
-                src="../assets/javascript.png"
-                alt="Card image cap" style="width:30%"
-            /></a>
-            <p>Javascript</p>
-          </div>
-           <div class="col-sm-4">
-            <a class="nav-link" href="#"
-              ><img
-                
-                class="img-responsive"
-                src="../assets/node_js.png"
-                alt="Card image cap" style="width:30%"
-            /></a>
-            <p>Node.js</p>
-          </div>
-          
-         
-        </div>
+      <div class="btn btn-outline-warning mr-2" v-on:click="toggleOng2">
+        Back end
+      </div>
+      <div class="btn btn-outline-warning mr-2" v-on:click="toggleOng3">
+        Data bases
       </div>
 
-      <div class="jumbotron">
-        <h2>Databases</h2>
-        <div class="row">
-          <div class="col-sm-4">
-            <a class="nav-link" href="#"
-              ><img
-                
-                class="img-responsive"
-                src="../assets/mysql.png"
-                alt="Card image cap" style="width:30%"
-            /></a>
-            <p>Mysql</p>
-          </div>
-           <div class="col-sm-4">
-            <a class="nav-link" href="#"
-              ><img
-                
-                class="img-responsive"
-                src="../assets/mongo_db.png"
-                alt="Card image cap" style="width:30%"
-            /></a>
-            <p>Mongo DB</p>
-          </div>
-           
-         
-        </div>
+      <div class="onglets card mb-5" v-if="toggle1">
+        <Front />
+      </div>
+      <div class="onglets card mb-5" v-if="toggle2">
+        <Back />
+      </div>
+      <div class="onglets card mb-5" v-if="toggle3">
+        <Base />
       </div>
 
-     <div class="jumbotron-fluid">
-        <div id="link" class="row">
-          <div class="col">
-            <router-link to="/aboutme"
-              ><i class="fas fa-question"></i
-            ></router-link>
-          </div>
-          <div class="col">
-            <router-link to="/formation"
-              ><i class="fas fa-info-circle"></i
-            ></router-link>
-          </div>
-          <div class="col">
-            <router-link to="/skills"
-              ><i class="fas fa-code-branch"></i
-            ></router-link>
-          </div>
-          <div class="col">
-            <router-link to="/projects"
-              ><i class="fas fa-briefcase"></i
-            ></router-link>
-          </div>
-          <div class="col">
-            <router-link to="/contact"
-              ><i class="fas fa-user-circle"></i
-            ></router-link>
-          </div>
-          <div class="col">
-            <router-link to="/"><i class="fas fa-home"></i></router-link>
-          </div>
-        </div>
+    </div>
+    
+      <div class="container-fluid m-0 p-0">
+    <Footer />
+
       </div>
-      </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
+  </section>
 </template>
 
 <script>
+import Front from "@/components/Frontend.vue";
+import Base from "@/components/Base.vue";
+import Back from "@/components/Backend.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "Tech",
+  data() {
+    return {
+      toggle1: true,
+      toggle2: false,
+      toggle3: false,
+    };
+  },
+  methods: {
+    toggleOng1: function () {
+      this.toggle1 = true;
+      this.toggle2 = false;
+      this.toggle3 = false;
+    },
+    toggleOng2: function () {
+      this.toggle1 = false;
+      this.toggle2 = true;
+      this.toggle3 = false;
+    },
+    toggleOng3: function () {
+      this.toggle1 = false;
+      this.toggle2 = false;
+      this.toggle3 = true;
+    },
+  },
   components: {
-   
+    Front,
+    Base,
+    Back,
+    Footer,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-  section{
-    background-image: url('../assets/tech.jpg');
-    align-items: center;
-  justify-content: center;
-  display: flex;
-  }
- img{
-   box-shadow: 0 2px 10px white;
-   &:hover{
-     box-shadow: 0 2px 10px rgba(0,0,0,3.5);
-   }
- }
- .jumbotron{
-   background: transparent;
- }
- h1{
-   color: white;
-   font-size: 5vmax;
-   font-family: Georgia, 'Times New Roman', Times, serif;
- }
- h2{
-   color: white;
-   font-family: monospace;
- }
- p{
-    color: white;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
- }
-#link{
-  display: flex;
-  justify-content: space-around;
-  font-size: 5vmax;
-  a {
-    color: rgb(255, 255, 255);
-    &:hover{
-      color: rgb(255, 2, 2);
-    }
-  }
+section {
+  height: 110vh;
+  background: linear-gradient(#7a7878, #8f91aa);
+  display: grid;
+ 
   
+  @media (orientation: landscape) {
+    max-height: 120vh;
+  }
 }
 
+h1 {
+  color: white;
+  font-size: 5vmax;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+h2 {
+  color: white;
+  font-family: monospace;
+}
+p {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.before-enter{
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 2s ease-out;
+ 
+}
+
+.enter{
+  opacity: 1;
+  transform: translateX(0px);
+}
 </style>

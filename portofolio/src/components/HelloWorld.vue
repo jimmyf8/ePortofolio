@@ -4,38 +4,7 @@
       <div class="jumbotron">
         <h1>{{ msg }}</h1>
       </div>
-      <div class="jumbotron-fluid">
-        <div id="link" class="row">
-          <div class="col">
-            <router-link to="/aboutme"
-              ><i class="fas fa-question"></i
-            ></router-link>
-          </div>
-          <div class="col">
-            <router-link to="/formation"
-              ><i class="fas fa-info-circle"></i
-            ></router-link>
-          </div>
-          <div class="col">
-            <router-link to="/skills"
-              ><i class="fas fa-code-branch"></i
-            ></router-link>
-          </div>
-          <div class="col">
-            <router-link to="/projects"
-              ><i class="fas fa-briefcase"></i
-            ></router-link>
-          </div>
-          <div class="col">
-            <router-link to="/contact"
-              ><i class="fas fa-user-circle"></i
-            ></router-link>
-          </div>
-          <div class="col">
-            <router-link to="/"><i class="fas fa-home"></i></router-link>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </section>
 </template>
